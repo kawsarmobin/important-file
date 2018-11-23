@@ -21,3 +21,17 @@ public function category()
   return $this->belongsTo('App\Category');
 }
 __________________________________________________________________
+{{-- Post create.blade.php file --}}
+<div class="form-group">
+    <label class="col-md-3 control-label">Category</label>
+    <div class="col-md-6">
+        <select class="form-control select" name="category_id">
+            <option value="">Select Category</option>
+            @if ($categories)
+              @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+              @endforeach
+            @endif
+        </select>
+    </div>
+</div>
