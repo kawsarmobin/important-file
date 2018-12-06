@@ -53,4 +53,14 @@ class MiscFormsController extends Controller
 
         return redirect()->route('miscForms.index');
     }
+
+    public function destroy($id)
+    {
+        $miscForm = MiscForm::find($id);
+        if ($miscForm->delete()) {
+            unlink('uploads/miscForm/' . $miscForm->getOriginal('attach'));
+            Flash::success('Miscellaneous form delete successfull.');
+        }
+        return redirect()->back();
+    }
 }
