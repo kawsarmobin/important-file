@@ -26,9 +26,10 @@ class CreateMiscTenderRequest extends FormRequest
         $rules = [
             'type' => 'required|min:2|max:191',
             'topics' => 'required|min:2|max:191',
-            'attach' => 'required|image|mimes:jpeg,jpg,png|max:10000',
+            'attach' => 'required|mimes:pdf|max:10000',
             'pub_date' => 'required',
         ];
+        return $rules;
     }
 
     public function messages()
